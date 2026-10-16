@@ -411,6 +411,15 @@ article.confirmation-page {
         size: letter;
         margin: 1.5cm;
     }
+
+    header, 
+    footer, 
+    nav, 
+    button, 
+    .btn {
+        display: none !important;
+    }
+
     body {
         font-size: 9pt;
         line-height: 1;
