@@ -21,17 +21,35 @@ export const getRouteById = async (routeId) => {
     return db().routes.find(route => route.id == routeId) || null;
 };
 
-export const getRoutesByRegion = async (region) => {
-    return db().routes.filter(route => route.region.toLowerCase() == region.toLowerCase());
-};
+// export const getRoutesByRegion = async (region) => {
+//     return db().routes.filter(route => route.region.toLowerCase() == region.toLowerCase());
+// };
 
-export const getRoutesBySeason = async (season) => {
-    return db().routes.filter(route => route.bestSeason.toLowerCase() == season.toLowerCase());
-};
+// export const getRoutesBySeason = async (season) => {
+//     return db().routes.filter(route => route.bestSeason.toLowerCase() == season.toLowerCase());
+// };
 
 export const getRoutesByMonth = async (month) => {
     return db().routes.filter(route => route.operatingMonths.includes(month));
 };
+
+export const getFilteredBySeasonRegion = async (filters = {}) => {
+    let routes = db().routes;
+
+    if (filters.region && filters.region !== 'all') {
+        routes = routes.filter(
+            routes => routes.region.toLowerCase() === filters.region.toLowerCase()
+        );
+    }
+
+    if (filters.season && filters.season !== 'all') {
+        routes = routes.filter(
+            route => route.bestSeason && route.bestSeason.toLowerCase() === filters.season.toLowerCase()
+        );
+    }
+
+    return routes;
+}
 
 export const getRoutesByDuration = async () => {
     return [...db().routes].sort((a, b) => {

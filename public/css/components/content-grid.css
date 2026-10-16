@@ -39,6 +39,21 @@
         grid-template-columns: inherit;
     }
 
+    #filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .filter-region {
+            grid-column: 1;
+            justify-content: center;
+        }
+
+        .filter-season {
+            grid-column: 2;
+            justify-content: center;
+        }
+    }
+
     @media (min-width: 768px) {
         grid-template-columns:
             [full-width-start]

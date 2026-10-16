@@ -12,4 +12,5 @@ const testErrorPage = (req, res, next) => {
     next(err);
 };
 
+
 export { homePage, aboutPage, testErrorPage };

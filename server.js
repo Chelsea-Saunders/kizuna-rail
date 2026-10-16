@@ -40,7 +40,7 @@ app.use(express.static(Path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // Tell Express where to find your templates
-app.set('views', Path.join(__dirname, 'src/views'));
+app.set('views', Path.join(__dirname, 'views'));
 
 // Parse JSON and URL-encoded request bodies (for processing POST data)
 app.use(express.json({ limit: '10mb' }));
