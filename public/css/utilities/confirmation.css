@@ -406,14 +406,186 @@ article.confirmation-page {
 }
 
 @media print {
+    /* print page setup */
+    @page {
+        size: letter;
+        margin: 1.5cm;
+    }
+    body {
+        font-size: 9pt;
+        line-height: 1;
+    }
+
     article.confirmation-page {
-        .confirmation-actions {
+        background: white;
+        color: black;
+        box-shadow: none;
+        max-width: none;
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+
+    .confirmation-actions, 
+    .success-icon {
             display: none;
         }
 
-        .confirmation-header {
-            background-color: white;
-            border: 2px solid var(--clr-primary);
-        }
+    .confirmation-header {
+        margin: 0 0 0.12in;
+        padding: 0 0 0.1in;
+        background-color: #fff;
+        border: 0;
+        border-bottom: 1px solid #777;
+        text-align: left;
+    }
+    .confirmation-title {
+        margin: 0 0 0.04in;
+        font-size: 17pt;
+    }
+
+    .confirmation-message {
+        margin: 0 0 0.05in;
+    }
+
+    .booking-reference {
+        margin: 0;
+    }
+
+    .confirmation-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.12in 0.2in;
+    }
+
+    .booking-details,
+    .passengers-info {
+        grid-column: 1 / -1;
+    }
+
+    .section-title, 
+    .info-title {
+        margin: 0 0 0.06in;
+        font-size: 11pt;
+    }
+
+    .booking-details .details-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 0.05in 0.12in;
+    }
+
+    .booking-details, 
+    .booking-details .details-grid {
+        display: grid;
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .detail-card {
+        display: block !important;
+        gap: 0;
+        padding: 0.03in !important;
+        border: 0 !important;
+        background: transparent;
+        box-shadow: none !important;
+        width: auto !important;
+        max-width: none !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+
+    .detail-icon {
+        display: none;
+    }
+
+    .detail-content, 
+    .passenger-detail {
+        min-width: 0;
+    }
+
+    .detail-label, 
+    .passenger-label {
+        display: block;
+        font-size: 7.5pt;
+    }
+
+    .detail-value, 
+    .passenger-value {
+        display: block;
+        overflow-wrap: anywhere;
+        font-size: 8.5pt;
+    }
+
+    .passengers-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.06in 0.15in;
+    }
+
+    .passenger-info-card {
+        padding: 0.05in 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+        background: transparent;
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .passenger-header {
+        margin: 0 !important;
+    }
+
+    .passenger-title {
+        margin: 0;
+        font-size: 9pt;
+        padding: 0 !important;
+    }
+
+    .passenger-detail {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 !important;
+    }
+
+    .next-steps .steps-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.03in 0.11in !important;
+    }
+
+    .next-steps .step-item {
+        display: flex;
+        gap: 0.03in;
+        margin: 0 !important;
+        padding: 0 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .step-number {
+        flex: 0 0 auto;
+    }
+
+    .next-steps .step-title, 
+    .next-steps .step-description {
+        margin: 0 !important;
+        font-size: 8pt;
+        line-height: 1;
+    }
+
+    .info-list {
+        margin: 0;
+        padding-left: 0.16in;
+    }
+
+    .info-list li {
+        margin: 0 0 0.04in;
+        font-size: 8pt;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    .confirmation-actions button {
+        display: none !important;
     }
 }
